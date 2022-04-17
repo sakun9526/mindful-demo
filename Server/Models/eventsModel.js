@@ -5,6 +5,7 @@ const eventSchema = mongoose.Schema({
     date: Date,
     time: String,
     numberOfSeats: String,
+    price: String,
     selectedFile: String,
 })
 
