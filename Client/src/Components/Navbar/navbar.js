@@ -1,10 +1,7 @@
 import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import {AppBar, Box, Typography} from '@mui/material';
 
-
-function navbar() {
+function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -17,4 +14,4 @@ function navbar() {
   )
 }
 
-export default navbar
+export default Navbar

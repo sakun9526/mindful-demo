@@ -1,6 +1,18 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/events';
+const API = axios.create({ baseURL: 'http://localhost:5000' });
 
-export const fetchEvents = () => axios.get(url);
-export const createEvent = (newEvent) => axios.post(url, newEvent);
+API.interceptors.request.use((req) => {
+  if (localStorage.getItem('profile')) {
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
+
+  }
+
+  return req;
+});
+
+export const fetchEvents = () => API.get('/events');
+export const createEvent = (newEvent) => API.post('/events', newEvent);
+
+export const signIn = (formData) => API.post('/user/signin', formData);
+export const signUp = (formData) => API.post('/user/signup', formData);

@@ -8,6 +8,7 @@ import 'dotenv/config';
 
 //import routes
 import eventRoutes from './Routes/events.js';
+import userRouter from "./Routes/user.js";
 
 const app = express();
 
@@ -17,7 +18,8 @@ app.use(bodyParser.urlencoded({limit:"30mb", extended:true}));
 app.use(cors());
 
 //declare routes
-app.use('/events', eventRoutes) //localhost:5000/events/
+app.use('/events', eventRoutes); //localhost:5000/events/
+app.use("/user", userRouter);
 
 const PORT = process.env.PORT||5000;
 
